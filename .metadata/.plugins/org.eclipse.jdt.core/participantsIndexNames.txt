@@ -1,0 +1,5 @@
+INDEX VERSION 1.126
+/media/Work/Otros/JAWorkspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2708343300.index
+/HelloJsf/src/main/resources
+/media/Work/Otros/JAWorkspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/191247645.index
+/HelloJsf/src/main/resources
