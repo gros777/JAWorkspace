@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean
+		name="implUserDao"
+		class="me.victorhernandez.hellojsf.dao.ImplUserDao">
+		<property name="usuarios">
+			<list>
+				<ref bean="usuario1" />
+				<ref bean="usuario2" />
+				<ref bean="usuario3" />
+			</list>
+		</property>
+	</bean>
+	<bean
+		id="dateFormat"
+		class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd" />
+	</bean>
+	<bean
+		name="usuario1"
+		class="me.victorhernandez.hellojsf.model.Usuario">
+		<property
+			name="id"
+			value="1" />
+		<property
+			name="username"
+			value="Eduardo Colindres" />
+		<property
+			name="password"
+			value="12345" />
+		<property
+			name="email"
+			value="eduardo.colindres@gmail.com" />
+		<property name="birthdate">
+			<bean
+				factory-bean="dateFormat"
+				factory-method="parse">
+				<constructor-arg value="1978-10-04" />
+			</bean>
+		</property>
+	</bean>
+	<bean
+		name="usuario2"
+		class="me.victorhernandez.hellojsf.model.Usuario">
+		<property
+			name="id"
+			value="2" />
+		<property
+			name="username"
+			value="José Pérez" />
+		<property
+			name="password"
+			value="12345" />
+		<property
+			name="email"
+			value="jose.perez@gmail.com" />
+		<property name="birthdate">
+			<bean
+				factory-bean="dateFormat"
+				factory-method="parse">
+				<constructor-arg value="1990-12-04" />
+			</bean>
+		</property>
+	</bean>
+	<bean
+		name="usuario3"
+		class="me.victorhernandez.hellojsf.model.Usuario">
+		<property
+			name="id"
+			value="3" />
+		<property
+			name="username"
+			value="Pedró Martínez" />
+		<property
+			name="password"
+			value="12345" />
+		<property
+			name="email"
+			value="pedrito@gmail.com" />
+		<property name="birthdate">
+			<bean
+				factory-bean="dateFormat"
+				factory-method="parse">
+				<constructor-arg value="1977-08-24" />
+			</bean>
+		</property>
+	</bean>
+</beans>

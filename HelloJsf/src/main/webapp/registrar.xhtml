@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Registrar Usuario</title>
+</h:head>
+<h:body>
+	<h:form id="formulario">
+		<h:panelGrid columns="3">
+			<h:outputLabel for="username">Nombre del Usuario</h:outputLabel>
+			<h:inputText id="username" requiredMessage="Please enter username"
+				label="Usuario" value="#{registrar.user.username}" required="true">
+				<f:ajax event="blur" render="usernameMessage" />
+			</h:inputText>
+			<h:message id="usernameMessage" for="username" />
+
+			<h:outputLabel for="password">Password</h:outputLabel>
+			<h:inputSecret id="password" requiredMessage="Please enter password"
+				label="password" value="#{registrar.user.password}" required="true"
+				redisplay="true">
+				<f:ajax event="blur" render="passwordMessage" />
+			</h:inputSecret>
+			<h:message id="passwordMessage" for="password" />
+
+			<h:outputLabel for="email">Email</h:outputLabel>
+			<h:inputText id="email" requiredMessage="Please enter email"
+				label="e-mail" value="#{registrar.user.email}" required="true">
+				<f:ajax event="blur" render="emailMessage" />
+			</h:inputText>
+			<h:message id="emailMessage" for="email" />
+
+			<h:outputLabel for="birthdate">Birthdate (yyyy-MM-dd)</h:outputLabel>
+			<h:inputText id="birthdate"
+				converterMessage="Please enter date in yyyy-MM-dd format"
+				label="birthday" value="#{registrar.user.birthdate}">
+				<f:convertDateTime pattern="yyyy-MM-dd" />
+				<f:ajax event="blur" render="birthdateMessage" />
+			</h:inputText>
+			<h:message id="birthdateMessage" for="birthdate" />
+
+			<h:panelGroup />
+			<h:commandButton value="Registrar" action="#{registrar.submit}">
+				<f:ajax execute="@form" render="@form dataTable" />
+			</h:commandButton>
+			<h:messages globalOnly="true" layout="table" />
+		</h:panelGrid>
+
+		<h:dataTable id="dataTable" value="#{registrados.registeredUsers}"
+			var="c" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+			<h:column>
+				<f:facet name="header">
+    				Customer ID
+    			</f:facet>
+    				#{c.id}
+    		</h:column>
+
+			<h:column>
+				<f:facet name="header">
+    				Name
+				</f:facet>
+    				#{c.username}
+    		</h:column>
+
+			<h:column>
+				<f:facet name="header">
+    				Password
+				</f:facet>
+    				#{c.password}
+    		</h:column>
+
+			<h:column>
+				<f:facet name="header">
+    				Birth Date
+				</f:facet>
+    				#{c.birthdate}
+    		</h:column>
+
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>
