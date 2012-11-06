@@ -7,13 +7,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
-import org.hibernate.Session;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import me.victorhernandez.hellojsf.dao.ImplUserDao;
 import me.victorhernandez.hellojsf.model.Usuario;
-import me.victorhernandez.hellojsf.util.HibernateUtil;
+
 
 @ManagedBean(name="registrar")
 @ViewScoped
@@ -39,13 +38,11 @@ public class RegisterBean implements Serializable {
 	
 	private void addUser(Usuario usuario) {
 		// obteniendo el contexto
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		
-		Long eventId = (Long) session.save(usuario);
-
-		session.getTransaction().commit();
-
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"dao-beans.xml");
+		// inyectando el usuario
+		ImplUserDao userDao = (ImplUserDao) ctx.getBean("implUserDao");
+		userDao.addUser(usuario);
 		
 	}
 

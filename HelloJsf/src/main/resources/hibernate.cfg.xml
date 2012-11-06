@@ -31,7 +31,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping resource="me/victorhernandez/hibernate/model/User.hbm.xml"/>
+        <mapping resource="me/victorhernandez/hellojsf/model/Usuario.hbm.xml"/>
 
     </session-factory>
 
