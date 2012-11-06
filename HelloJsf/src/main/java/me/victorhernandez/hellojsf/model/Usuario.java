@@ -7,11 +7,11 @@ import javax.validation.constraints.NotNull;
 public class Usuario {
 
 	private Long id;
-	@NotNull(message = "Please enter username")
+	
     private String username;
-	@NotNull(message = "Please enter password")
+	
     private String password;
-	@NotNull(message = "Please enter email")
+	
     private String email;
     private Date birthdate;
     
