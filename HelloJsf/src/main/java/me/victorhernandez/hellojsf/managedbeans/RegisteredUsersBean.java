@@ -27,10 +27,8 @@ public class RegisteredUsersBean implements Serializable {
 				"dao-beans.xml");
 		// inyectando el usuario
 		ImplUserDao userDao = (ImplUserDao) ctx.getBean("implUserDao");
-		
-		
-		return userDao.getUsuarios();
-		//return userDao.getAll();
+		//return userDao.getUsuarios();
+		return userDao.getAll();
 
 		
 	}

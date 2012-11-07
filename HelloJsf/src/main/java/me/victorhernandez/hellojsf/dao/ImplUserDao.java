@@ -39,7 +39,7 @@ public class ImplUserDao implements InterfaceUserDao {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		List<Usuario> result = session.createQuery("from USUARIO").list();
+		List<Usuario> result = session.createQuery("from Usuario").list();
 		session.getTransaction().commit();
 		return result;
 		

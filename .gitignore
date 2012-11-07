@@ -42,7 +42,7 @@ Thumbs.db
 # Eclipse workspace metadata #
 ######################
 .metadata
-#.classpath
-#.settings
-#.project
+*/.classpath
+*/.settings
+*/.project
 */target/**/*
