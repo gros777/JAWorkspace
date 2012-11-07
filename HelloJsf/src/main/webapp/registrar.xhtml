@@ -13,14 +13,14 @@
 	<h:form id="formulario">
 		<h:panelGrid columns="3">
 			<h:outputLabel for="username">Nombre del Usuario</h:outputLabel>
-			<h:inputText id="username" requiredMessage="Please enter username"
+			<h:inputText id="username" requiredMessage="Ingrese su usuario"
 				label="Usuario" value="#{registrar.user.username}" required="true">
 				<f:ajax event="blur" render="usernameMessage" />
 			</h:inputText>
 			<h:message id="usernameMessage" for="username" />
 
 			<h:outputLabel for="password">Password</h:outputLabel>
-			<h:inputSecret id="password" requiredMessage="Please enter password"
+			<h:inputSecret id="password" requiredMessage="Ingrese un password"
 				label="password" value="#{registrar.user.password}" required="true"
 				redisplay="true">
 				<f:ajax event="blur" render="passwordMessage" />
@@ -28,15 +28,15 @@
 			<h:message id="passwordMessage" for="password" />
 
 			<h:outputLabel for="email">Email</h:outputLabel>
-			<h:inputText id="email" requiredMessage="Please enter email"
+			<h:inputText id="email" requiredMessage="Favor ingrese un mail"
 				label="e-mail" value="#{registrar.user.email}" required="true">
 				<f:ajax event="blur" render="emailMessage" />
 			</h:inputText>
 			<h:message id="emailMessage" for="email" />
 
-			<h:outputLabel for="birthdate">Birthdate (yyyy-MM-dd)</h:outputLabel>
+			<h:outputLabel for="birthdate">Fecha de Nacimiento (yyyy-MM-dd)</h:outputLabel>
 			<h:inputText id="birthdate"
-				converterMessage="Please enter date in yyyy-MM-dd format"
+				converterMessage="Ingrese la fecha en formato: yyyy-MM-dd"
 				label="birthday" value="#{registrar.user.birthdate}">
 				<f:convertDateTime pattern="yyyy-MM-dd" />
 				<f:ajax event="blur" render="birthdateMessage" />
@@ -56,14 +56,14 @@
 
 			<h:column>
 				<f:facet name="header">
-    				Customer ID
+    			        Id de Usuario	
     			</f:facet>
     				#{c.id}
     		</h:column>
 
 			<h:column>
 				<f:facet name="header">
-    				Name
+                                Nombre
 				</f:facet>
     				#{c.username}
     		</h:column>
@@ -84,7 +84,7 @@
     		
 			<h:column>
 				<f:facet name="header">
-    				Birth Date
+                                Fecha de nacimiento
 				</f:facet>
     				#{c.birthdate}
     		</h:column>
