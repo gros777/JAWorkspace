@@ -34,8 +34,16 @@ public class RegisterBean implements Serializable {
 		addUser(user);
         FacesMessage message = new FacesMessage("Registro exitoso!");
         FacesContext.getCurrentInstance().addMessage(null, message);
+        clearForm();
     }
 	
+	private void clearForm() {
+		user.setBirthdate(null);
+		user.setEmail("");
+		user.setPassword("");
+		user.setUsername("");
+	}
+
 	private void addUser(Usuario usuario) {
 		// obteniendo el contexto
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(

@@ -6,6 +6,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="table-style.css" />
 	<title>Registrar Usuario</title>
 </h:head>
 <h:body>
@@ -48,7 +49,7 @@
 			</h:commandButton>
 			<h:messages globalOnly="true" layout="table" />
 		</h:panelGrid>
-
+		<hr/>
 		<h:dataTable id="dataTable" value="#{registrados.registeredUsers}"
 			var="c" styleClass="order-table" headerClass="order-table-header"
 			rowClasses="order-table-odd-row,order-table-even-row">
@@ -76,6 +77,13 @@
 
 			<h:column>
 				<f:facet name="header">
+    				e-Mail
+				</f:facet>
+    				#{c.email}
+    		</h:column>
+    		
+			<h:column>
+				<f:facet name="header">
     				Birth Date
 				</f:facet>
     				#{c.birthdate}
@@ -83,6 +91,8 @@
 
 		</h:dataTable>
 	</h:form>
+
+
 
 </h:body>
 </html>
