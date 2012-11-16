@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="table-style.css" />
+	<title>Registrar Vehiculo</title>
+</h:head>
+<h:body>
+	<h:form id="formulario">
+		<h:panelGrid columns="3">
+			<h:outputLabel for="carname">Marca y Modelo</h:outputLabel>
+			<h:inputText id="carname" requiredMessage="Ingrese su vehiculo"
+				label="Vehiculo" value="#{carsMb.car.carName}" required="true">
+				<f:ajax event="blur" render="carnameMessage" />
+			</h:inputText>
+			<h:message id="carnameMessage" for="carname" />
+			<h:outputLabel for="carprice">Precio del Vehiculo</h:outputLabel>
+			<h:inputText id="carprice" requiredMessage="Ingrese un precio"
+				label="Precio" value="#{carsMb.car.price}" required="true">
+				<f:ajax event="blur" render="carpriceMessage" />
+			</h:inputText>
+			<h:message id="carpriceMessage" for="carprice" />
+
+			<h:panelGroup />
+			<h:commandButton value="Registrar" action="#{carsMb.submit}">
+				<f:ajax execute="@form" render="@form dataTable" />
+			</h:commandButton>
+			<h:messages globalOnly="true" layout="table" />
+		</h:panelGrid>
+		<hr />
+		<h:dataTable id="dataTable" value="#{carsMb.cars}"
+			var="c" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+			<h:column>
+				<f:facet name="header">
+    			        Id del Vehiculo	
+    			</f:facet>
+    				#{c.id}
+    		</h:column>
+
+			<h:column>
+				<f:facet name="header">
+                                Vehiculo
+				</f:facet>
+    				#{c.carName}
+    		</h:column>
+			<h:column>
+				<f:facet name="header">
+                                Precio
+				</f:facet>
+    				#{c.price}
+    		</h:column>
+		</h:dataTable>
+
+	</h:form>
+
+</h:body>
+</html>

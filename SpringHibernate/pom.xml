@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>me.victorhernandez.hellospring</groupId>
-	<artifactId>HelloSpring</artifactId>
+	<groupId>me.victorhernandez.springhibernate</groupId>
+	<artifactId>SpringHibernate</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>HelloSpring Maven Webapp</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>SpringHibernate Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<spring.version>3.1.2.RELEASE</spring.version>
@@ -156,10 +156,9 @@
 			<version>1.2.17</version>
 		</dependency>
 	</dependencies>
-	
 
 	<build>
-		<finalName>HelloSpring</finalName>
+		<finalName>SpringHibernate</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
