@@ -37,17 +37,6 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!-- configuración personalizada para scope -->
-	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
-		<property name="scopes">
-			<map>
-				<entry key="view">
-					<bean class="net.comdynamics.myapp.web.spring.customscope.ViewScope" />
-				</entry>
-			</map>
-		</property>
-	</bean>
-
 	<!-- Activates annotation-based bean configuration -->
 	<context:spring-configured />
 	<context:annotation-config />

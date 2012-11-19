@@ -2,10 +2,12 @@ package me.victorhernandez.hellospring.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,7 +19,7 @@ public class Task implements Serializable, DomainObject {
 
 	private Long id;
     private String description;
-    private Usuario asignedUser;
+    private Set<Usuario> asignedUser;
     private Date taskDate;
     private Integer version;
     
@@ -35,11 +37,11 @@ public class Task implements Serializable, DomainObject {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@ManyToOne
-	public Usuario getAsignedUser() {
+	@ManyToMany
+	public Set<Usuario> getAsignedUser() {
 		return asignedUser;
 	}
-	public void setAsignedUser(Usuario asignedUser) {
+	public void setAsignedUser(Set<Usuario> asignedUser) {
 		this.asignedUser = asignedUser;
 	}
 	@Temporal(TemporalType.TIMESTAMP)

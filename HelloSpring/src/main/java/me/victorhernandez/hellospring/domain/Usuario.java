@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,7 +23,7 @@ public class Usuario implements Serializable, DomainObject {
 	
 	private String nombre;
 	private String direccion;
-	private String email;
+	private Set<String> email;
 	private Date birthdate;
 	private String password;
 	private Set<Task> tasks;
@@ -50,7 +51,7 @@ public class Usuario implements Serializable, DomainObject {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@OneToMany(orphanRemoval = true, cascade = { javax.persistence.CascadeType.ALL })
+	@ManyToMany(cascade = { javax.persistence.CascadeType.ALL })
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	public Set<Task> getTasks() {
 		return tasks;
@@ -77,14 +78,10 @@ public class Usuario implements Serializable, DomainObject {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public String getEmail() {
+	public Set<String> getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(Set<String> email) {
 		this.email = email;
-	}
-	public boolean addTaskToUser(Task task){
-		task.setAsignedUser(this);
-		return this.tasks.add(task);
 	}
 }

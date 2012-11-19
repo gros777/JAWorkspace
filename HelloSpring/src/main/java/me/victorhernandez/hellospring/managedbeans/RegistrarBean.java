@@ -42,7 +42,7 @@ public class RegistrarBean implements Serializable {
 
 	private void clearForm() {
 		user.setBirthdate(null);
-		user.setEmail("");
+		user.setEmail(null);
 		user.setPassword("");
 		user.setNombre("");
 	}
