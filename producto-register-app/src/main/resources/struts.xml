@@ -9,10 +9,21 @@
 	<!-- The next constant allow us to modify the struts conf file and automatic reloadit -->
 	<constant name="struts.configuration.xml.reload" value="true"/>
 	
-	<!-- Deining the packages -->
+	<!-- Defining the packages -->
 	<package name="primer-struts" extends="struts-default">
 		<action name="index">
 			<result name="success">/index.jsp</result>
+		</action>
+		<action name="greatings" class="me.victorhernandez.struts2.pra.actions.GreetingAction">
+			<result name="success">/greetings.jsp</result>
+		</action>
+		<action name="userGreeting" class="me.victorhernandez.struts2.pra.actions.UserGreetingAction">
+			<result name="success">/saludoTerricola.jsp</result>
+		</action>
+	</package>
+	<package name="app" extends="primer-struts">
+		<action name="allProducts" class="me.victorhernandez.struts2.pra.actions.RegisteredProductsAction">
+			<result name="succes">/allRegistered.jsp</result>
 		</action>
 	</package>
 </struts>
