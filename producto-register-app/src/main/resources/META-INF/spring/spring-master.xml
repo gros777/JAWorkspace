@@ -12,52 +12,7 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<context:property-placeholder location="classpath*:META-INF/spring/*.properties" />
 
-	<context:component-scan base-package="me.victorhernandez.hellospring">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Repository" />
-	</context:component-scan>
-	<!-- This will ensure that hibernate or jpa exceptions are automatically 
-		translated into Spring's generic DataAccessException hierarchy -->
-	<bean
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-	<bean id="springDataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}"
-		p:username="${jdbc.username}" p:password="${jdbc.password}" />
-
-	<!--<import resource="spring-hibernate.xml"/> -->
-	<!-- JPA Entity Manager Factory -->
-	<bean
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-		id="entityManagerFactory">
-		<property name="persistenceUnitName" value="persistenceUnit" />
-		<property name="dataSource" ref="springDataSource" />
-		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="showSql" value="true" />
-				<property name="generateDdl" value="true" />
-				<property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
-			</bean>
-		</property>
-	</bean>
-
-	<!-- Read in DAOs from the JPA package -->
-	<context:component-scan base-package="me.victorhernandez.hellospring.dao.jpa" />
-
-	<!-- Transaction Config -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean
-		class="org.springframework.transaction.aop.AnnotationTransactionAspect"
-		factory-method="aspectOf">
-		<property name="transactionManager" ref="transactionManager" />
-	</bean>
 
 </beans>
