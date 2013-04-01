@@ -42,7 +42,7 @@ public class GenericDaoJpa<T extends DomainObject> implements GenericDao<T> {
 	@Transactional(readOnly = true)
 	public List<T> getAll() {
 		return entityManager.createQuery(
-				"select o from " + type.getName() + "o").getResultList();
+				"select o from " + type.getName() + " o").getResultList();
 	}
 
 	public void save(T object) {

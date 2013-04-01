@@ -53,4 +53,12 @@ public class ProductServiceJpa implements ProductService {
 		return productDao.getProductsByMark(mark);
 	}
 
+	public ProductDao getProductDao() {
+		return productDao;
+	}
+
+	public void setProductDao(ProductDao productDao) {
+		this.productDao = productDao;
+	}
+
 }

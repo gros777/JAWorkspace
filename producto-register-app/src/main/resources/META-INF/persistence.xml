@@ -5,23 +5,23 @@
                   http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 	<persistence-unit name="springPersistenceUnit"
-		transaction-type="RESOURCE_LOCAL" >
+		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
-            <!--
-             | The SQL dialect to use for this data source, use MySQL InnoDB as
-             | we only use InnoDB tables for the entity beans.
-             +-->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <!--
-             | Specify the second level query cache for hibernate.
-             +-->
-            <!--
-             | Enable query caching availability.
-             +-->
-            <!-- <property name="hibernate.cache.use_query_cache" value="true"/> -->
-        </properties>
-		
-		</persistence-unit>
+			<!-- | The SQL dialect to use for this data source, use MySQL InnoDB as 
+				| we only use InnoDB tables for the entity beans. + -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<!-- | Specify the second level query cache for hibernate. + -->
+			<!-- | Enable query caching availability. + -->
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.cache.region.factory_class"
+				value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
+			<property name="hibernate.ejb.naming_strategy"
+				value="org.hibernate.cfg.DefaultComponentSafeNamingStrategy" />
+		</properties>
+
+	</persistence-unit>
 </persistence>

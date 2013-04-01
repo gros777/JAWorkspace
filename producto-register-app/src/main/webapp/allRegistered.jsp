@@ -8,13 +8,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:iterator status="stat" value="allProducts">
-		<s:property value="id"/>
-		<s:property value="productName"/>
-		<s:property value="mark"/>
-		<s:property value="shelve"/>
-		<s:property value="availables"/>
-		<s:property value="goodThough"/>
-	</s:iterator>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Product Name</th>
+			<th>Mark</th>
+			<th>Shelve</th>
+			<th>Avaliable</th>
+			<th>Goog Through</th>
+		</tr>
+		<s:iterator status="stat" value="products">
+			<tr>
+				<td><s:property value="id" /></td>
+				<td><s:property value="productName" /></td>
+				<td><s:property value="mark" /></td>
+				<td><s:property value="shelve" /></td>
+				<td><s:property value="availables" /></td>
+				<td><s:property value="goodThough" /></td>
+			</tr>
+		</s:iterator>
+	</table>
 </body>
 </html>

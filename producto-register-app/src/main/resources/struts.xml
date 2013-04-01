@@ -22,8 +22,8 @@
 		</action>
 	</package>
 	<package name="app" extends="primer-struts">
-		<action name="allProducts" class="me.victorhernandez.struts2.pra.actions.RegisteredProductsAction">
-			<result name="succes">/allRegistered.jsp</result>
+		<action name="allProducts" class="registeredProductsAction">
+			<result name="success">/allRegistered.jsp</result>
 		</action>
 	</package>
 </struts>
