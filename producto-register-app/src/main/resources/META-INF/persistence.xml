@@ -10,7 +10,7 @@
 		<properties>
 			<!-- | The SQL dialect to use for this data source, use MySQL InnoDB as 
 				| we only use InnoDB tables for the entity beans. + -->
-			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<!-- | Specify the second level query cache for hibernate. + -->
 			<!-- | Enable query caching availability. + -->
