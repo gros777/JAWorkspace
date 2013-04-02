@@ -5,7 +5,9 @@
 #####################################################
 
 Requerimientos: 
-->Tomcat 7, se utiliza el plugin de maven para un despliegue facil y se asume que se tiene funcionando un servidor tomcat
+->Tomcat 7, se utiliza el plugin de maven para un despliegue facil y se asume que 
+  se tiene funcionando un servidor tomcat y que el usuario admin tiene como password 
+  admin y que este tiene el rol manager-script asignado
 -> Spring Tool Suit
 -> Maven 3
 

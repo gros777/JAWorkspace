@@ -19,9 +19,10 @@
 			</div>
 		</div>
 		<div id="menu">
-			<a href="/producto-register-app/allProducts.action" >All Products</a>
-			<a href="/producto-register-app/newProduct.jsp" >Add new Products</a>
-			<a href="/producto-register-app/searchBy.action" >Search Product By: </a>
+			<a href="/producto-register-app/allProducts.action">All Products</a>
+			<a href="/producto-register-app/newProduct.jsp">Add new Products</a>
+			<a href="/producto-register-app/searchBy.action">Search Product
+				By: </a>
 		</div>
 		<div id="content">
 			<table>
@@ -35,7 +36,11 @@
 				</tr>
 				<s:iterator status="stat" value="products">
 					<tr>
-						<td><s:property value="id" /></td>
+						<td><s:form>
+								<s:textfield name="id" />
+								<s:submit action="modifyProduct" type="input" value="Modify"/>
+								<s:submit action="deleteProduct" value="Delete"/>
+							</s:form></td>
 						<td><s:property value="productName" /></td>
 						<td><s:property value="mark" /></td>
 						<td><s:property value="shelve" /></td>

@@ -27,12 +27,17 @@
 		<div id="content">
 			<s:fielderror/>
 			<s:form action="addNewProduct">
-				<s:textfield name="productName" label="Product Name" required="true"/> <br />
-				<s:textfield name="mark" label="Mark" /> <br />
-				<s:textfield name="shelve" label="Shelve" /> <br />
-				<s:textfield name="availables" label="Avaliable" /> <br />
-				<s:textfield name="goodThough" label="Goog Through" /> <br />
-				<s:submit value="Add Product" />
+				<s:textfield name="productName" label="Product Name" required="true" value="%{product.productName}"/> <br />
+				<s:textfield name="mark" label="Mark" value="%{product.mark}" /> <br />
+				<s:textfield name="shelve" label="Shelve" value="%{product.shelve}"/> <br />
+				<s:textfield name="availables" label="Avaliable" value="%{product.availables}"/> <br />
+				<s:textfield name="goodThough" label="Goog Through" value="%{product.goodThough}"/> <br />
+				<s:if test="id < 0">
+					<s:submit value="Add Product" />
+				</s:if>
+				<s:else>
+					<s:submit value="Modify Product" />
+				</s:else>
 			</s:form>
 		</div>
 		<div id="footer"></div>
