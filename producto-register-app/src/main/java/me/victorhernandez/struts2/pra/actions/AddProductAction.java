@@ -1,6 +1,5 @@
 package me.victorhernandez.struts2.pra.actions;
 
-
 import me.victorhernandez.struts2.pra.domanin.Product;
 import me.victorhernandez.struts2.pra.service.ProductService;
 
@@ -10,19 +9,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class AddProductAction extends ActionSupport implements ModelDriven<Product>{
+public class AddProductAction extends ActionSupport implements
+		ModelDriven<Product> {
 
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6727629495086452702L;
-	
+
 	Product newProduct = new Product();
 	@Autowired
-	@Qualifier(value="productService")
+	@Qualifier(value = "productService")
 	private ProductService productService;
 	
+	private String errorMessage;
 	public ProductService getProductService() {
 		return productService;
 	}
@@ -30,16 +30,26 @@ public class AddProductAction extends ActionSupport implements ModelDriven<Produ
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
-	
+
 	public Product getModel() {
 		return newProduct;
 	}
 
-	public String execute() throws Exception{
-		productService.persistProduct(newProduct);
-		
-		return SUCCESS;
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 
+
+	@Override
+	public String execute()  {
+		try {
+			productService.persistProduct(newProduct);
+			return SUCCESS;
+		} catch (Exception ex) {
+			errorMessage = ex.getMessage();
+			return ERROR;
+		} 
+	}
 	
+
 }

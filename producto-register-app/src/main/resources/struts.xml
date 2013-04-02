@@ -30,6 +30,7 @@
 		</action>
 		<action name="addNewProduct" class="addProductAction">
 			<result name="success">/index.jsp</result>
+			<result name="error">/errorPage.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -25,8 +25,9 @@
 				Product By: </a>
 		</div>
 		<div id="content">
+			<s:fielderror/>
 			<s:form action="addNewProduct">
-				<s:textfield name="productName" label="Product Name" /> <br />
+				<s:textfield name="productName" label="Product Name" required="true"/> <br />
 				<s:textfield name="mark" label="Mark" /> <br />
 				<s:textfield name="shelve" label="Shelve" /> <br />
 				<s:textfield name="availables" label="Avaliable" /> <br />

@@ -25,7 +25,7 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-	<!-- This will ensure that hibernate or jpa exceptions are automatically 
+	<!-- This will ensure that hibernate 4 or jpa exceptions are automatically 
 		translated into Spring's generic DataAccessException hierarchy -->
 	<bean  class="org.springframework.orm.hibernate4.HibernateExceptionTranslator"/>
 
