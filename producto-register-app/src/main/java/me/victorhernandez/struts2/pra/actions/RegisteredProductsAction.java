@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import me.victorhernandez.struts2.pra.domanin.Product;
+import me.victorhernandez.struts2.pra.domain.Product;
 import me.victorhernandez.struts2.pra.service.ProductService;
 
 import com.opensymphony.xwork2.ActionSupport;

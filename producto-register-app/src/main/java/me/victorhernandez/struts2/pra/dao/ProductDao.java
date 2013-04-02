@@ -3,7 +3,7 @@ package me.victorhernandez.struts2.pra.dao;
 import java.util.Date;
 import java.util.List;
 
-import me.victorhernandez.struts2.pra.domanin.Product;
+import me.victorhernandez.struts2.pra.domain.Product;
 
 public interface ProductDao extends GenericDao<Product> {
 

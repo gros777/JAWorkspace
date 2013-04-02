@@ -2,7 +2,7 @@ package me.victorhernandez.struts2.pra.dao;
 
 import java.util.List;
 
-import me.victorhernandez.struts2.pra.domanin.DomainObject;
+import me.victorhernandez.struts2.pra.domain.DomainObject;
 
 
 public interface GenericDao<T extends DomainObject> {

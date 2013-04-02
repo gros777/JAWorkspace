@@ -1,6 +1,6 @@
 package me.victorhernandez.struts2.pra.actions;
 
-import me.victorhernandez.struts2.pra.domanin.Product;
+import me.victorhernandez.struts2.pra.domain.Product;
 import me.victorhernandez.struts2.pra.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;

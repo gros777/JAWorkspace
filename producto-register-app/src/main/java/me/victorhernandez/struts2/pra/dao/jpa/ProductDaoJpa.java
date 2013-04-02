@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import me.victorhernandez.struts2.pra.dao.ProductDao;
-import me.victorhernandez.struts2.pra.domanin.Product;
+import me.victorhernandez.struts2.pra.domain.Product;
 @Repository(value="productRepository")
 public class ProductDaoJpa extends GenericDaoJpa<Product> implements
 		ProductDao {

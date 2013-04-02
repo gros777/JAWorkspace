@@ -21,7 +21,7 @@
 	<context:annotation-config />
 	<!-- JPA packages -->
 	<context:component-scan base-package="me.victorhernandez.struts2.pra.dao" />
-	<context:component-scan base-package="me.victorhernandez.struts2.pra.domanin" />
+	<context:component-scan base-package="me.victorhernandez.struts2.pra.domain" />
 	<!-- Service packages -->
 	<context:component-scan base-package="me.victorhernandez.struts2.pra.service" />
 	<!-- Actions -->

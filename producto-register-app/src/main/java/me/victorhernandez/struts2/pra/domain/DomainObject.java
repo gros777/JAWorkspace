@@ -1,4 +1,4 @@
-package me.victorhernandez.struts2.pra.domanin;
+package me.victorhernandez.struts2.pra.domain;
 
 import java.io.Serializable;
 

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import me.victorhernandez.struts2.pra.dao.GenericDao;
-import me.victorhernandez.struts2.pra.domanin.DomainObject;
+import me.victorhernandez.struts2.pra.domain.DomainObject;
 
 import org.springframework.transaction.annotation.Transactional;
 
