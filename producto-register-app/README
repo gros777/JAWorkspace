@@ -1,0 +1,33 @@
+#####################################################
+## Este es un proyecto de caracter educativo       ##
+## en el cual se ejemplifica el uso de Struts2     ##
+## y su integración con Spring 3.2.2 e Hibernate 4 ##
+#####################################################
+
+Servidor: Tomcat 7, se utiliza el plugin de maven
+para un despliegue facil y se asume que se tiene funcionando
+
+Preparación del ambiente
+1. compilar con maven: mvn clean package
+2. cargar proyecto en STS (o eclipse) con Import>Existing Maven Project
+3. Agregar el servidor tomcat al archivo $M2_HOME/conf/settings.xml dentro de
+tag <servers>:
+    <server>
+      <id>myTomcat</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+4. Agregar el siguiente data source en tomcat: $CATALINA_HOME/conf/context.xml
+<Resource 
+	name="jdbc/prodRegDataSrc" 
+	auth="Container" 
+	type="javax.sql.DataSource" 
+	username="sa" 
+	password="" 
+	driverClassName="org.hsqldb.jdbcDriver" 
+	url="jdbc:hsqldb:hsql://localhost:9001" 
+	maxActive="8" 
+	maxIdle="4"/>
+5. copiar librería hsql a $CATALINA_HOME/lib de target/producto-register-app/WEB-INF/lib
+cp target/producto-register-app/WEB-INF/lib/hsqldb-2.2.4.jar $CATALINA_HOME/lib
+6. desplegar y visitar http://localhost:8080/producto-register-app/allProducts.action
