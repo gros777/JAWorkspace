@@ -13,15 +13,21 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- Datasource File -->
-    <import resource="classpath*:META-INF/spring/spring-datasource.xml"/> 
+    <import resource="classpath:META-INF/spring/spring-datasource.xml"/> 
     <!-- Jpa configuration -->
-    <import resource="classpath*:META-INF/spring/spring-jpa.xml"/> 
+    <import resource="classpath:META-INF/spring/spring-jpa.xml"/> 
 	<!-- Activates annotation-based bean configuration -->
 	<context:spring-configured />
 	<context:annotation-config />
-	<context:component-scan base-package="me.victorhernandez.struts2.pra" />
+	<!-- JPA packages -->
+	<context:component-scan base-package="me.victorhernandez.struts2.pra.dao" />
+	<context:component-scan base-package="me.victorhernandez.struts2.pra.domanin" />
+	<!-- Service packages -->
+	<context:component-scan base-package="me.victorhernandez.struts2.pra.service" />
 	<!-- Actions -->
-	<bean id="registeredProductsAction " class="me.victorhernandez.struts2.pra.actions.RegisteredProductsAction"/>
- <!--	<import resource="classpath:spring-test-beans.xml"/> -->
+	<bean id="registeredProductsAction" class="me.victorhernandez.struts2.pra.actions.RegisteredProductsAction"/>
+	<bean id="searchProductAction" class="me.victorhernandez.struts2.pra.actions.SearchProductAction"/>
+	<bean id="addProductAction" class="me.victorhernandez.struts2.pra.actions.AddProductAction"/>
+ <!--	<import resource="classpath*:spring-test-beans.xml"/> -->
 
 </beans>

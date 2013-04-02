@@ -18,7 +18,7 @@
 		<property name="minPoolSize" value="5" />
 	</bean>
 	 using properties 
-	<context:property-placeholder location="classpath*:META-INF/spring/*.properties" />
+	<context:property-placeholder location="classpath:META-INF/spring/*.properties" />
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}" />

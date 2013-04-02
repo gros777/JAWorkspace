@@ -25,5 +25,11 @@
 		<action name="allProducts" class="registeredProductsAction">
 			<result name="success">/allRegistered.jsp</result>
 		</action>
+		<action name="searchProducts" class="searchProductAction">
+			<result name="success">/searchProducts.jsp</result>
+		</action>
+		<action name="addNewProduct" class="addProductAction">
+			<result name="success">/index.jsp</result>
+		</action>
 	</package>
 </struts>

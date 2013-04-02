@@ -10,6 +10,9 @@ import me.victorhernandez.struts2.pra.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 @Service(value="productService")
@@ -27,7 +30,10 @@ public class ProductServiceJpa implements ProductService {
 	public List<Product> getAllProducts() {
 		return productDao.getAll();
 	}
-
+	@Transactional(
+		    propagation = Propagation.REQUIRED,
+		    isolation = Isolation.DEFAULT,
+		    readOnly = false)
 	public void persistProduct(Product object) throws Exception {
 		Assert.notNull(object, "The product cannot be null");
 		Assert.hasText(object.getProductName(), "The product's name has to be filled");
@@ -35,7 +41,10 @@ public class ProductServiceJpa implements ProductService {
 		productDao.save(object);
 		
 	}
-
+	@Transactional(
+		    propagation = Propagation.REQUIRED,
+		    isolation = Isolation.DEFAULT,
+		    readOnly = false)
 	public void deleteProduct(Product object) {
 		productDao.delete(object);
 	}

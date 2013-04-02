@@ -13,8 +13,8 @@
 			<div id="logo"></div>
 			<div id="searchForm">
 				<s:form action="searchProducts">
-					<s:textfield name="productName" label="Nombre de Producto" />
-					<s:submit value="Buscar" />
+				<s:textfield name="productName" label="Nombre de Producto"/>
+				<s:submit value="Buscar"/>
 				</s:form>
 			</div>
 		</div>
@@ -24,28 +24,15 @@
 			<a href="/producto-register-app/searchBy.action" >Search Product By: </a>
 		</div>
 		<div id="content">
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>Product Name</th>
-					<th>Mark</th>
-					<th>Shelve</th>
-					<th>Avaliable</th>
-					<th>Goog Through</th>
-				</tr>
-				<s:iterator status="stat" value="products">
-					<tr>
-						<td><s:property value="id" /></td>
-						<td><s:property value="productName" /></td>
-						<td><s:property value="mark" /></td>
-						<td><s:property value="shelve" /></td>
-						<td><s:property value="availables" /></td>
-						<td><s:property value="goodThough" /></td>
-					</tr>
-				</s:iterator>
-			</table>
+			ID:<s:property value="product.id" /><br />
+			Product Name:<s:property value="product.productName" /><br />
+			Mark:<s:property value="product.mark" /><br />
+			Shelve:<s:property value="product.shelve" /><br />
+			Avaliable:<s:property value="product.availables" /><br />
+			Goog Through:<s:property value="product.goodThough" /><br />
 		</div>
-		<div id="footer"></div>
+		<div id="footer">
+		</div>
 	</div>
 </body>
 </html>

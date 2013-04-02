@@ -5,6 +5,7 @@
     "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,8 +14,8 @@
 			<div id="logo"></div>
 			<div id="searchForm">
 				<s:form action="searchProducts">
-					<s:textfield name="productName" label="Nombre de Producto" />
-					<s:submit value="Buscar" />
+				<s:textfield name="productName" label="Nombre de Producto"/>
+				<s:submit value="Buscar"/>
 				</s:form>
 			</div>
 		</div>
@@ -24,28 +25,9 @@
 			<a href="/producto-register-app/searchBy.action" >Search Product By: </a>
 		</div>
 		<div id="content">
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>Product Name</th>
-					<th>Mark</th>
-					<th>Shelve</th>
-					<th>Avaliable</th>
-					<th>Goog Through</th>
-				</tr>
-				<s:iterator status="stat" value="products">
-					<tr>
-						<td><s:property value="id" /></td>
-						<td><s:property value="productName" /></td>
-						<td><s:property value="mark" /></td>
-						<td><s:property value="shelve" /></td>
-						<td><s:property value="availables" /></td>
-						<td><s:property value="goodThough" /></td>
-					</tr>
-				</s:iterator>
-			</table>
 		</div>
-		<div id="footer"></div>
+		<div id="footer">
+		</div>
 	</div>
 </body>
 </html>
