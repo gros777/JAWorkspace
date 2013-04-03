@@ -7,9 +7,9 @@ import javax.persistence.PersistenceContext;
 
 import me.victorhernandez.struts2.pra.dao.GenericDao;
 import me.victorhernandez.struts2.pra.domain.DomainObject;
+import me.victorhernandez.struts2.pra.domain.Product;
 
 import org.springframework.transaction.annotation.Transactional;
-
 
 public class GenericDaoJpa<T extends DomainObject> implements GenericDao<T> {
 
@@ -20,8 +20,10 @@ public class GenericDaoJpa<T extends DomainObject> implements GenericDao<T> {
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
+
 	/**
 	 * Constructor receives a Class Type
+	 * 
 	 * @param type
 	 */
 	public GenericDaoJpa(Class<T> type) {

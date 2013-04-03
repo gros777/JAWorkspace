@@ -10,6 +10,7 @@ public interface ProductService {
 	public Product getProduct(Long id);
     public List<Product> getAllProducts();
     public void persistProduct(Product object) throws Exception;
+    public void modifyProduct(Product object);
     public void deleteProduct(Product object);
 	public List<Product> getProductsByCaducity(Date caducity);
 	public Product getProductByName(String name);

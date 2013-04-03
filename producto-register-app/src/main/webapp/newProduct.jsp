@@ -19,14 +19,14 @@
 			</div>
 		</div>
 		<div id="menu">
-			<a href="/producto-register-app/allProducts.action">All Products</a>
-			<a href="/producto-register-app/newProduct.jsp">Add new Products</a>
+			<a href="/producto-register-app/allProducts.action">All Products</a>|
+			<a href="/producto-register-app/newProduct.jsp">Add new Products</a>|
 			<a href="/producto-register-app/searchBy.action">Search Product
 				By: </a>
 		</div>
 		<div id="content">
 			<s:fielderror />
-			<s:form action="addNewProduct">
+			<s:form >
 				<s:hidden name="id" />
 				<s:textfield name="productName" label="Product Name" required="true"
 					value="%{product.productName}" />
@@ -41,7 +41,12 @@
 				<s:textfield name="goodThough" label="Goog Through"
 					value="%{product.goodThough}" />
 				<br />
-				<s:submit value="Submit" />
+				<s:if test="id == null || id == 0">
+					<s:submit value="Submit" action="addNewProduct"/>
+				</s:if>
+				<s:else>
+					<s:submit value="Submit" action="saveModifiedProduct"/>
+				</s:else>
 			</s:form>
 		</div>
 		<div id="footer"></div>

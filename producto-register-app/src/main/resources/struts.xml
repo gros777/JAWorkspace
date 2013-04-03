@@ -35,5 +35,8 @@
 		<action name="modifyProduct" class="modDelProduct">
 			<result name="success">/newProduct.jsp</result>
 		</action>
+		<action name="saveModifiedProduct" class="addProductAction" method="modify">
+			<result name="success" type="redirect">allProducts</result>
+		</action>
 	</package>
 </struts>

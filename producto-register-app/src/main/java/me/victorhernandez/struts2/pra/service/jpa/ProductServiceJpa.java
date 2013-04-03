@@ -48,7 +48,15 @@ public class ProductServiceJpa implements ProductService {
 	public void deleteProduct(Product object) {
 		productDao.delete(object);
 	}
-
+	
+	@Transactional(
+		    propagation = Propagation.REQUIRED,
+		    isolation = Isolation.DEFAULT,
+		    readOnly = false)
+	public void modifyProduct(Product object) {
+		productDao.modify(object);
+		
+	}
 	public List<Product> getProductsByCaducity(Date caducity) {
 		Assert.notNull(caducity, "The date can't be null");
 		return productDao.getProductsByCaducity(caducity);

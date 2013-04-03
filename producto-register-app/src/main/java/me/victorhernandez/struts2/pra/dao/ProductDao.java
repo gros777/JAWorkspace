@@ -10,4 +10,5 @@ public interface ProductDao extends GenericDao<Product> {
 	public List<Product> getProductsByCaducity(Date caducity);
 	public Product getProductByName(String name);
 	public List<Product> getProductsByMark(String mark);
+	public void modify(Product product);
 }

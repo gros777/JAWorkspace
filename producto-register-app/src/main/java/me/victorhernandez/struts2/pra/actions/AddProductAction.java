@@ -56,9 +56,7 @@ public class AddProductAction extends ActionSupport implements
 	}
 	
 	public String modify(){
-		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
-		Long id = (Long) request.getAttribute("id");
-		productService.getProduct(id);
+		productService.modifyProduct(newProduct);
 		return SUCCESS;
 	}
 	
