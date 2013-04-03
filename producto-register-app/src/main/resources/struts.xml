@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
     
 <struts>
-	<!-- this is useful for development purpouses -->
+	<!-- this is useful for development porpouses -->
 	<constant name="struts.devMod" value="true" />
 	<!-- The next constant allow us to modify the struts conf file and automatic reloadit -->
 	<constant name="struts.configuration.xml.reload" value="true"/>
@@ -29,11 +29,11 @@
 			<result name="success">/searchProducts.jsp</result>
 		</action>
 		<action name="addNewProduct" class="addProductAction">
-			<result name="success">/index.jsp</result>
+			<result name="success" type="redirect">allProducts</result>
 			<result name="error">/errorPage.jsp</result>
 		</action>
 		<action name="modifyProduct" class="modDelProduct">
-			<result>/newProduct.jsp</result>
+			<result name="success">/newProduct.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -32,20 +32,22 @@
 					<th>Mark</th>
 					<th>Shelve</th>
 					<th>Avaliable</th>
-					<th>Goog Through</th>
+					<th>Good Through</th>
 				</tr>
-				<s:iterator status="stat" value="products">
+				<s:iterator status="productStatus" value="products">
 					<tr>
-						<td><s:form>
-								<s:textfield name="id" />
-								<s:submit action="modifyProduct" type="input" value="Modify"/>
-								<s:submit action="deleteProduct" value="Delete"/>
-							</s:form></td>
+						<td><s:property value="id" /></td>
 						<td><s:property value="productName" /></td>
 						<td><s:property value="mark" /></td>
 						<td><s:property value="shelve" /></td>
 						<td><s:property value="availables" /></td>
 						<td><s:property value="goodThough" /></td>
+						<td>
+							<s:url id="editUrl" action="modifyProduct">
+								<s:param name="id" value="%{id}"></s:param>
+							</s:url>
+							<s:a href="%{editUrl}" >Modify</s:a> 
+						</td>
 					</tr>
 				</s:iterator>
 			</table>

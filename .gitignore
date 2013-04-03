@@ -42,8 +42,14 @@ Thumbs.db
 # Eclipse workspace metadata #
 ######################
 .metadata
+.springBeans
 */.classpath
 */.settings
 */.project
 */target/**/*
 Servers
+
+# others
+######################
+#
+*/**/*lck

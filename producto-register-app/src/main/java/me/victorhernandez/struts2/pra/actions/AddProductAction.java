@@ -3,9 +3,13 @@ package me.victorhernandez.struts2.pra.actions;
 import me.victorhernandez.struts2.pra.domain.Product;
 import me.victorhernandez.struts2.pra.service.ProductService;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -49,6 +53,13 @@ public class AddProductAction extends ActionSupport implements
 			errorMessage = ex.getMessage();
 			return ERROR;
 		} 
+	}
+	
+	public String modify(){
+		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
+		Long id = (Long) request.getAttribute("id");
+		productService.getProduct(id);
+		return SUCCESS;
 	}
 	
 

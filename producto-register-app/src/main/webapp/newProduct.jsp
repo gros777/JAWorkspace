@@ -20,24 +20,28 @@
 		</div>
 		<div id="menu">
 			<a href="/producto-register-app/allProducts.action">All Products</a>
-			<a href="/producto-register-app/newProduct.jsp">Add new
-				Products</a> <a href="/producto-register-app/searchBy.action">Search
-				Product By: </a>
+			<a href="/producto-register-app/newProduct.jsp">Add new Products</a>
+			<a href="/producto-register-app/searchBy.action">Search Product
+				By: </a>
 		</div>
 		<div id="content">
-			<s:fielderror/>
+			<s:fielderror />
 			<s:form action="addNewProduct">
-				<s:textfield name="productName" label="Product Name" required="true" value="%{product.productName}"/> <br />
-				<s:textfield name="mark" label="Mark" value="%{product.mark}" /> <br />
-				<s:textfield name="shelve" label="Shelve" value="%{product.shelve}"/> <br />
-				<s:textfield name="availables" label="Avaliable" value="%{product.availables}"/> <br />
-				<s:textfield name="goodThough" label="Goog Through" value="%{product.goodThough}"/> <br />
-				<s:if test="id < 0">
-					<s:submit value="Add Product" />
-				</s:if>
-				<s:else>
-					<s:submit value="Modify Product" />
-				</s:else>
+				<s:hidden name="id" />
+				<s:textfield name="productName" label="Product Name" required="true"
+					value="%{product.productName}" />
+				<br />
+				<s:textfield name="mark" label="Mark" value="%{product.mark}" />
+				<br />
+				<s:textfield name="shelve" label="Shelve" value="%{product.shelve}" />
+				<br />
+				<s:textfield name="availables" label="Avaliable"
+					value="%{product.availables}" />
+				<br />
+				<s:textfield name="goodThough" label="Goog Through"
+					value="%{product.goodThough}" />
+				<br />
+				<s:submit value="Submit" />
 			</s:form>
 		</div>
 		<div id="footer"></div>
