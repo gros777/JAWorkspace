@@ -60,5 +60,12 @@ public class AddProductAction extends ActionSupport implements
 		return SUCCESS;
 	}
 	
-
+	public String delete(){
+		HttpServletRequest request = (HttpServletRequest) ActionContext
+				.getContext().get(ServletActionContext.HTTP_REQUEST);
+		Long id = (Long) request.getAttribute("id");
+		newProduct = productService.getProduct(id);
+		productService.deleteProduct(newProduct);
+		return SUCCESS;
+	}
 }

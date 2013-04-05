@@ -48,6 +48,12 @@
 							</s:url>
 							<s:a href="%{editUrl}" >Modify</s:a> 
 						</td>
+						<td>
+							<s:url id="deleteUrl" action="deleteProduct">
+								<s:param name="id" value="%{id}"></s:param>
+							</s:url>
+							<s:a href="%{deleteUrl}" >Delete</s:a> 
+						</td>
 					</tr>
 				</s:iterator>
 			</table>
