@@ -45,8 +45,8 @@ public class ProductServiceJpa implements ProductService {
 		    propagation = Propagation.REQUIRED,
 		    isolation = Isolation.DEFAULT,
 		    readOnly = false)
-	public void deleteProduct(Product object) {
-		productDao.delete(object);
+	public void deleteProduct(Long id) {
+		productDao.deleteProduct(id);
 	}
 	
 	@Transactional(

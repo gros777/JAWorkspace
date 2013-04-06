@@ -11,7 +11,7 @@ public interface ProductService {
     public List<Product> getAllProducts();
     public void persistProduct(Product object) throws Exception;
     public void modifyProduct(Product object);
-    public void deleteProduct(Product object);
+    public void deleteProduct(Long id);
 	public List<Product> getProductsByCaducity(Date caducity);
 	public Product getProductByName(String name);
 	public List<Product> getProductsByMark(String mark);

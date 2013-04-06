@@ -64,8 +64,7 @@ public class AddProductAction extends ActionSupport implements
 		HttpServletRequest request = (HttpServletRequest) ActionContext
 				.getContext().get(ServletActionContext.HTTP_REQUEST);
 		Long id = (Long) request.getAttribute("id");
-		newProduct = productService.getProduct(id);
-		productService.deleteProduct(newProduct);
+		productService.deleteProduct(id);
 		return SUCCESS;
 	}
 }
