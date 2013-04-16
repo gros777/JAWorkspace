@@ -77,4 +77,12 @@ public class Product implements Serializable, DomainObject {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
+	
+	public void copyFrom(Product product) {
+		this.productName = product.getProductName();
+		this.availables = product.getAvailables();
+		this.goodThough = product.getGoodThough();
+		this.mark = product.getMark();
+		this.shelve = product.getShelve();
+	}
 }

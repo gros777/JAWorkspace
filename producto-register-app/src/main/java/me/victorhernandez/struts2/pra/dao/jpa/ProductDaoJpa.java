@@ -62,5 +62,15 @@ public class ProductDaoJpa extends GenericDaoJpa<Product> implements
 	        return results;
 	    }
 	}
+	
+	public void modify(Product product) {
+		Product originalProduct = entityManager.find(Product.class, product.getId());
+		originalProduct.copyFrom(product);
+	}
+	
+	public void deleteProduct(Long id) {
+		Product productToDelete = entityManager.find(Product.class, id);
+		super.delete(productToDelete);
+	}
 
 }

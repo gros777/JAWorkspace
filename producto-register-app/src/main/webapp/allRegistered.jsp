@@ -19,9 +19,10 @@
 			</div>
 		</div>
 		<div id="menu">
-			<a href="/producto-register-app/allProducts.action" >All Products</a>
-			<a href="/producto-register-app/newProduct.jsp" >Add new Products</a>
-			<a href="/producto-register-app/searchBy.action" >Search Product By: </a>
+			<a href="/producto-register-app/allProducts.action">All Products</a>
+			<a href="/producto-register-app/newProduct.jsp">Add new Products</a>
+			<a href="/producto-register-app/searchBy.action">Search Product
+				By: </a>
 		</div>
 		<div id="content">
 			<table>
@@ -31,9 +32,9 @@
 					<th>Mark</th>
 					<th>Shelve</th>
 					<th>Avaliable</th>
-					<th>Goog Through</th>
+					<th>Good Through</th>
 				</tr>
-				<s:iterator status="stat" value="products">
+				<s:iterator status="productStatus" value="products">
 					<tr>
 						<td><s:property value="id" /></td>
 						<td><s:property value="productName" /></td>
@@ -41,6 +42,18 @@
 						<td><s:property value="shelve" /></td>
 						<td><s:property value="availables" /></td>
 						<td><s:property value="goodThough" /></td>
+						<td>
+							<s:url id="editUrl" action="modifyProduct">
+								<s:param name="id" value="%{id}"></s:param>
+							</s:url>
+							<s:a href="%{editUrl}" >Modify</s:a> 
+						</td>
+						<td>
+							<s:url id="deleteUrl" action="deleteProduct">
+								<s:param name="id" value="%{id}"></s:param>
+							</s:url>
+							<s:a href="%{deleteUrl}" >Delete</s:a> 
+						</td>
 					</tr>
 				</s:iterator>
 			</table>

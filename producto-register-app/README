@@ -4,8 +4,14 @@
 ## y su integración con Spring 3.2.2 e Hibernate 4 ##
 #####################################################
 
-Servidor: Tomcat 7, se utiliza el plugin de maven
-para un despliegue facil y se asume que se tiene funcionando
+Requerimientos: 
+->Tomcat 7, se utiliza el plugin de maven para un despliegue facil y se asume que 
+  se tiene funcionando un servidor tomcat y que el usuario admin tiene como password 
+  admin y que este tiene el rol manager-script asignado
+-> Spring Tool Suit
+-> Maven 3
+
+NOTA: los comando proporcionados son para utilizar en sistemas tipo *nix
 
 Preparación del ambiente
 1. compilar con maven: mvn clean package
@@ -18,7 +24,7 @@ tag <servers>:
       <password>admin</password>
     </server>
 4. Agregar el siguiente data source en tomcat: $CATALINA_HOME/conf/context.xml
-<Resource 
+   <Resource 
 	name="jdbc/prodRegDataSrc" 
 	auth="Container" 
 	type="javax.sql.DataSource" 
@@ -29,5 +35,11 @@ tag <servers>:
 	maxActive="8" 
 	maxIdle="4"/>
 5. copiar librería hsql a $CATALINA_HOME/lib de target/producto-register-app/WEB-INF/lib
-cp target/producto-register-app/WEB-INF/lib/hsqldb-2.2.4.jar $CATALINA_HOME/lib
-6. desplegar y visitar http://localhost:8080/producto-register-app/allProducts.action
+   con el comando:
+   cp target/producto-register-app/WEB-INF/lib/hsqldb-2.2.4.jar $CATALINA_HOME/lib
+6. Iniciar servidor hsql desde el raíz del proyecto:
+   mvn exec:java -Dexec.mainClass="org.hsqldb.Server" -Dexec.args="-database.0 file:data/tutorial"
+7. iniciar servidor tomcat
+6. desplegar aplicativo:
+   mvn tomcat7:deploy
+8. visitar http://localhost:8080/producto-register-app/allProducts.action

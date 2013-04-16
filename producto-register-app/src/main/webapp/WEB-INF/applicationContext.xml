@@ -27,7 +27,8 @@
 	<!-- Actions -->
 	<bean id="registeredProductsAction" class="me.victorhernandez.struts2.pra.actions.RegisteredProductsAction"/>
 	<bean id="searchProductAction" class="me.victorhernandez.struts2.pra.actions.SearchProductAction"/>
-	<bean id="addProductAction" class="me.victorhernandez.struts2.pra.actions.AddProductAction"/>
+	<bean id="productAction" class="me.victorhernandez.struts2.pra.actions.AddProductAction"/>
+	<bean id="modDelProduct" class="me.victorhernandez.struts2.pra.actions.ModifyDeleteProduct"/>
  <!--	<import resource="classpath*:spring-test-beans.xml"/> -->
 
 </beans>
