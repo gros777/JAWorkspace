@@ -14,8 +14,8 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- Datasource File -->
     <import resource="classpath:META-INF/spring/spring-datasource.xml"/> 
-    <!-- Jpa configuration -->
-    <import resource="classpath:META-INF/spring/spring-jpa.xml"/> 
+    <!-- Hibernate configuration -->
+    <import resource="classpath:META-INF/spring/spring-hibernate.xml"/> 
 	<!-- Activates annotation-based bean configuration -->
 	<context:spring-configured />
 	<context:annotation-config />

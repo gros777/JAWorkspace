@@ -5,6 +5,7 @@ import java.util.List;
 
 import me.victorhernandez.struts2.pra.dao.ProductDao;
 import me.victorhernandez.struts2.pra.domain.Product;
+import me.victorhernandez.struts2.pra.exceptions.EntityNotFoundException;
 import me.victorhernandez.struts2.pra.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,16 +58,16 @@ public class ProductServiceJpa implements ProductService {
 		productDao.modify(object);
 		
 	}
-	public List<Product> getProductsByCaducity(Date caducity) {
+	public List<Product> getProductsByCaducity(Date caducity) throws EntityNotFoundException {
 		Assert.notNull(caducity, "The date can't be null");
 		return productDao.getProductsByCaducity(caducity);
 	}
 
-	public Product getProductByName(String name) {
+	public Product getProductByName(String name) throws EntityNotFoundException {
 		return productDao.getProductByName(name);
 	}
 
-	public List<Product> getProductsByMark(String mark) {
+	public List<Product> getProductsByMark(String mark) throws EntityNotFoundException {
 		return productDao.getProductsByMark(mark);
 	}
 

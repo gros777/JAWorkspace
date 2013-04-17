@@ -9,17 +9,16 @@ import me.victorhernandez.struts2.pra.dao.GenericDao;
 import me.victorhernandez.struts2.pra.domain.DomainObject;
 import me.victorhernandez.struts2.pra.domain.Product;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 public class GenericDaoJpa<T extends DomainObject> implements GenericDao<T> {
 
 	private Class<T> type;
-	protected EntityManager entityManager;
 
-	@PersistenceContext
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+	@Autowired
+	protected SessionFactory sessionFactory;
 
 	/**
 	 * Constructor receives a Class Type
@@ -36,24 +35,25 @@ public class GenericDaoJpa<T extends DomainObject> implements GenericDao<T> {
 		if (id == null) {
 			return null;
 		} else {
-			return entityManager.find(type, id);
+			return (T)sessionFactory.getCurrentSession().get(type, id);
 		}
+
 	}
 
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	public List<T> getAll() {
-		return entityManager.createQuery(
-				"select o from " + type.getName() + " o").getResultList();
+		return sessionFactory.getCurrentSession().createQuery(
+				"select o from " + type.getName() + " o").list();
 	}
 
 	public void save(T object) {
-		entityManager.persist(object);
+		sessionFactory.getCurrentSession().save(object);
 
 	}
 
 	public void delete(T object) {
-		entityManager.remove(object);
+		sessionFactory.getCurrentSession().delete(object);
 	}
 
 }
