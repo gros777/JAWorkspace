@@ -85,4 +85,15 @@ public class Product implements Serializable, DomainObject {
 		this.mark = product.getMark();
 		this.shelve = product.getShelve();
 	}
+	@Override
+	public String toString() {
+		return "ID: " + id
+				+ "\nProduct: " + productName 
+				+ "\nMark: " + mark
+				+ "\nAvaliable: " + availables 
+				+ "\nShelve: " + shelve
+				+ "\n"; 
+	}
+	
+	
 }

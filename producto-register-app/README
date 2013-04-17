@@ -43,3 +43,23 @@ tag <servers>:
 6. desplegar aplicativo:
    mvn tomcat7:deploy
 8. visitar http://localhost:8080/producto-register-app/allProducts.action
+
+#############################################################
+#                Notas para el desarrollo                   #
+#############################################################
+
+-. Para el uso de las pruebas unitarias se esta utilizando SpringUnitTest con el archivo de
+   configuración spring-test-beans.xml ubicado en resourses/META-INF/spring. Debido al uso de la
+   la base de datos en las pruebas este esta configurado con el datasource C3PO.
+-. Se han desactivado las pruebas unitarias de forma estandar en maven (con el plugin surefire).
+   Para correr las pruebas unitarias se debe usar el siguiente comando maven:
+   mvn -DskipTests=false test
+-. Cuando se desee correr una prueba en específico deberá utilizarse:
+   mvn -Dtest=UserClassTest test
+-. Si se necesitase realizar un debuggin con eclipse se puede utilizar el comando maven:
+   mvn -Dmaven.surefire.debug -DskipTests=false test
+   este utiliza el dt_socket=5005 para escuchar las conexiones. El funcionamiento es simple: cuando
+   maven llega a la etapa TEST, este pausa la VM y espera una conexión al puerto 5005, una vez
+   conectado el debuger a la VM la ejecución de los TEST dará comienzo. Si es necesario utilizar otro
+   puerto se debera pasar a maven de la siguiente forma:
+   mvn -Dmaven.surefire.debug="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 -Xnoagent -Djava.compiler=NONE" -DskipTests=false test

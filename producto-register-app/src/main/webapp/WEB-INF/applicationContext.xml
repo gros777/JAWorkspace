@@ -12,6 +12,8 @@
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <!-- Properties -->
+	<context:property-placeholder location="classpath:META-INF/spring/jdbc.properties" />
 	<!-- Datasource File -->
     <import resource="classpath:META-INF/spring/spring-datasource.xml"/> 
     <!-- Hibernate configuration -->
@@ -30,5 +32,6 @@
 	<bean id="productAction" class="me.victorhernandez.struts2.pra.actions.AddProductAction"/>
 	<bean id="modDelProduct" class="me.victorhernandez.struts2.pra.actions.ModifyDeleteProduct"/>
  <!--	<import resource="classpath*:spring-test-beans.xml"/> -->
+ 
 
 </beans>

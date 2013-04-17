@@ -48,7 +48,7 @@ public class GenericDaoJpa<T extends DomainObject> implements GenericDao<T> {
 	}
 
 	public void save(T object) {
-		sessionFactory.getCurrentSession().save(object);
+		sessionFactory.getCurrentSession().saveOrUpdate(object);
 
 	}
 

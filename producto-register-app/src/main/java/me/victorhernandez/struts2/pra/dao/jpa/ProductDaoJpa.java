@@ -66,6 +66,7 @@ public class ProductDaoJpa extends GenericDaoJpa<Product> implements
 	public void modify(Product product) {
 		Product originalProduct = (Product) sessionFactory.getCurrentSession().get(Product.class, product.getId());
 		originalProduct.copyFrom(product);
+		save(originalProduct);
 	}
 	
 	public void deleteProduct(Long id) {
