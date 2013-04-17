@@ -20,7 +20,6 @@
 		<property name="minPoolSize" value="5" />
 	</bean>
 	 using properties 
-	-->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}" />
@@ -32,10 +31,10 @@
 		<property name="minPoolSize" value="5" />
 	</bean>
 	
-	<!-- JNDI Datasource 
+	-->
+	<!-- JNDI Datasource -->
 
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean" >
-		<property name="jndiName" value="java:comp/env/jdbc/prodRegDataSrc" />
+		<property name="jndiName" value="java/prodRegDataSrc" />
 	</bean> 
-	-->
 </beans>

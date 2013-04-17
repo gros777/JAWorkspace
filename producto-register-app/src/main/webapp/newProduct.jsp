@@ -41,11 +41,11 @@
 				<s:textfield name="goodThough" label="Goog Through"
 					value="%{product.goodThough}" />
 				<br />
-				<s:if test="id == null || id == 0">
-					<s:submit value="Submit" action="addNewProduct"/>
+				<s:if test="id == 0">
+					<s:submit value="Add" action="addNewProduct"/>
 				</s:if>
 				<s:else>
-					<s:submit value="Submit" action="saveModifiedProduct"/>
+					<s:submit value="Modify" action="saveModifiedProduct"/>
 				</s:else>
 			</s:form>
 		</div>
