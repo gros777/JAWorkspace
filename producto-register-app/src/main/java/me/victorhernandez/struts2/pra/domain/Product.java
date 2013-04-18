@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -63,7 +65,8 @@ public class Product implements Serializable, DomainObject {
 		this.shelve = shelve;
 	}
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="product_seq_gen")
+	@SequenceGenerator(name="product_seq_gen", sequenceName="PRODUCT_SEQ")
 	public Long getId() {
 		return id;
 	}
