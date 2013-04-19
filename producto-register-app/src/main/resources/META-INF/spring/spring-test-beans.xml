@@ -54,10 +54,9 @@
 		<property name="availables" value="35"/>
 		<property name="mark" value="Salud" />
 		<property name="shelve" value="HR3498" />
-		<property name="version" value="3" />
 	</bean>
 	<bean name="product3" class="me.victorhernandez.struts2.pra.domain.Product">
-		<property name="productName" value="Sal de ajo"/>
+		<property name="productName" value="Sal de Cebolla"/>
 		<property name="goodThough">
 			<bean factory-bean="dateFormat" factory-method="parse">
 				<constructor-arg value="2013-12-05" />
@@ -66,7 +65,6 @@
 		<property name="availables" value="78"/>
 		<property name="mark" value="McKormic" />
 		<property name="shelve" value="TD5196" />
-		<property name="version" value="7" />
 	</bean>
 	
 	

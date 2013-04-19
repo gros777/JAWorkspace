@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,6 +33,7 @@ public class Product implements Serializable, DomainObject {
 	private String shelve;
 	private Long id;
 	private Integer version;
+	private Category category;
 	
 	public String getProductName() {
 		return productName;
@@ -81,12 +84,19 @@ public class Product implements Serializable, DomainObject {
 		this.version = version;
 	}
 	
-	public void copyFrom(Product product) {
-		this.productName = product.getProductName();
-		this.availables = product.getAvailables();
-		this.goodThough = product.getGoodThough();
-		this.mark = product.getMark();
-		this.shelve = product.getShelve();
+	/**
+	 * @return the category
+	 */
+	@ManyToOne
+	@JoinColumn(name="categoryId", nullable=true)
+	public Category getCategory() {
+		return category;
+	}
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	@Override
 	public String toString() {
@@ -96,6 +106,15 @@ public class Product implements Serializable, DomainObject {
 				+ "\nAvaliable: " + availables 
 				+ "\nShelve: " + shelve
 				+ "\n"; 
+	}
+	public void copyFrom(DomainObject origin) {
+		Product source = (Product)origin;
+		this.availables = source.availables;
+		this.goodThough = source.goodThough;
+		this.mark = source.mark;
+		this.productName = source.productName;
+		this.shelve = source.shelve;
+		this.category = source.category;
 	}
 	
 	
