@@ -67,11 +67,6 @@
 		<!-- Hibernate dependencies -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>3.5.6-Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.5.6-Final</version>
 		</dependency>
@@ -80,17 +75,26 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>3.5.6-Final</version>
 		</dependency>
+		
+		<!-- Hibernate dependencies
+		<dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.5.6-Final</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-search</artifactId>
 			<version>4.1.1.Final</version>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.5.8</version>
 		</dependency>
-		<!-- Validator -->
+		<!-- Validator 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -101,7 +105,7 @@
 			<artifactId>javassist</artifactId>
 			<version>3.11.0.GA</version>
 		</dependency>
-
+-->
 		<!-- HSQLDB -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
